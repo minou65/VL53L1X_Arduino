@@ -79,6 +79,7 @@ class SFEVL53L1X
 	void startRanging(); //Begins taking measurements
 	void startOneshotRanging(); // Start one-shot ranging
 	void stopRanging(); //Stops taking measurements
+	bool isRanging(); //Returns true if currently taking measurements
 	bool checkForDataReady(); //Checks the to see if data is ready
 	void setTimingBudgetInMs(uint16_t timingBudget); //Set the timing budget for a measurement
 	uint16_t getTimingBudgetInMs(); //Get the timing budget for a measurement
@@ -148,4 +149,5 @@ class SFEVL53L1X
 	int _interruptPin;
 	int _i2cAddress = 0x52;
 	VL53L1X* _device;
+	bool _ranging = false;
 };

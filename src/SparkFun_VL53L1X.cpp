@@ -156,16 +156,24 @@ uint8_t SFEVL53L1X::getInterruptPolarity()
 void SFEVL53L1X::startRanging()
 {
 	_device->VL53L1X_StartRanging();
+	_ranging = true;
 }
 
 void SFEVL53L1X::startOneshotRanging() 
 {
   	_device->VL53L1X_StartOneshotRanging();
+	_ranging = false;
 }
 
 void SFEVL53L1X::stopRanging()
 {
 	_device->VL53L1X_StopRanging();
+	_ranging = false;
+}
+
+bool SFEVL53L1X::isRanging()
+{
+	return _ranging;
 }
 
 bool SFEVL53L1X::checkForDataReady()
